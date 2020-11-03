@@ -14,11 +14,11 @@
 "use strict";
 
 const BRACKJACK_NUMBER=21;
-let TOTAL_NUMBER=0;
+let total_number=0;
 
 while(true) {
-    let intput_number = prompt("숫자를 입력하세요.") * 1;
-    total_number += input_number;
+    let input_number = prompt("숫자를 입력하세요.");
+    total_number +=Number(input_number);
     
     if (total_number === BRACKJACK_NUMBER) {
         alert("승리");
