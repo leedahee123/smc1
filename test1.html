@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+  <p>스크립트 전</p>
+
+  <script>
+            // 배경을 붉은색으로 변경하기
+    
+    document.body.style.background = "red";
+    
+    // 1초 후 원상태로 복귀  
+    setTimeout(() => document.body.style.background = "orange", 100);
+    setTimeout(() => document.body.style.background = "yellow", 200);
+    setTimeout(() => document.body.style.background = "green", 300);
+    setTimeout(() => document.body.style.background = "skyblue", 400);
+    setTimeout(() => document.body.style.background = "blue", 500);
+    setTimeout(() => document.body.style.background = "purple", 600);
+    setTimeout(() => document.body.style.background = "", 700);
+
+  </script>
+
+  <p>스크립트 후</p>
+
+</body>
+
+</html>
