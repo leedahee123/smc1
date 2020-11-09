@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>AS 신청서</title>
+    </head>
+    <body>
+        <p>이름</p>
+        <input type="text" id="name"/>
+        <p>이메일</p>
+        <input type="text" id="mail"/>
+        <p>제목</p>
+        <input type="text" id="title"/>
+        <p>설명</p>
+        <input type="text" id="content"/> <br/> <br/>
+
+        <input type="button" value="제출" onclick="validation_check()">
+        <input type="button" value="다시쓰기" onclick="reset()">
+        <script>
+             function validation_check() {
+                const name = document.getElementById("name").value;
+                if (2 > name.length || name.length > 10) {
+                    alert("이름은 2~10글자 사이여야만 합니다.");
+                }
+                const mail = document.getElementById("mail").value;
+                if (mail.indexOf("@") !== mail.lastIndexOf("@")) {
+                    alert("이메일은 '@'가 하나만 들어가야 합니다.");
+                    } 
+                let checkTitle = document.getElementById("title").value;
+                let category ="분류 : ";
+                let checkTitleBoolean=false;
+                    for(let i=0;i<=0;i++){
+                        if(checkTitle[0]==="["){
+                            for(let j=1;j<=checkTitle.length;j++){
+                                if(checkTitle[j]==="]"){
+                                    for(let k=1;k<j;k++){
+                                        category = category.concat(checkTitle[k]);
+                                        checkTitleBoolean=true;
+                                    }
+                                }
+                        
+                            }
+                        }
+                    }
+                    if(checkTitleBoolean==true){
+                        alert(category);
+                    }
+            else{
+                alert('"[분류]제목명"형식을 지켜야 합니다.');
+            }
+                let checkContent = document.getElementById("content").value;
+                if(checkContent.length>100){
+                    alert("설명은 100글자 까지만 작성할 수 있습니다.");
+                }
+             } 
+             function reset() {
+                for(const elements of document.querySelectorAll("input[type=text]")){
+                    elements.value = "";
+           }
+        }
+    
+        </script>
+    </body>
+</html>

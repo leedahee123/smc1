@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table style="border : 1px solid black">
+        <tr>
+            <td>
+                <a>이름:</a>
+                <input type="text" id="name">  
+            </td>
+            <td>
+                <a>이메일:</a>
+                <input type="text" id="email">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+                <a>제목:</a>
+                <input type="text" id="title" style="width: 405px;">
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+                <a>설명:</a>
+                <input type="text" id="content" style="width: 405px;height: 200px;;">
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr style="height: 50px;">
+            <td style="text-align: center;">
+                <input type="button" value="제출 하기" onclick="submit()">
+            </td>
+            <td style="text-align: center;">
+                <input type="button" value="다시 쓰기" onclick="reset()">
+            </td>
+        </tr>
+    </table>
+    <script>
+        function submit(){
+            //이름 : 글자 수 검사
+            let checkName = document.getElementById("name").value;
+            if((2>checkName.length)||(checkName.length>10)){
+                 alert("이름은 2~10글자로 입력해주세요.");
+            }
+            //이메일 : "@" 한개 맞는지 검사
+            let checkEmail = document.getElementById("email").value;
+            let checkEmailCounter=0;
+            for(const emailChar of checkEmail){
+                if(emailChar==="@"){
+                    checkEmailCounter++;
+                }
+            }
+            if(checkEmailCounter!==1){
+                alert("이메일칸에는 '@'가 한번 들어가야합니다.");
+            }
+            //제목 : [분류] 포맷으로 작성
+            let checkTitle = document.getElementById("title").value;
+            let category ="분류 : ";
+            let checkTitleBoolean=false;
+            for(let i=0;i<=0;i++){
+                if(checkTitle[0]==="["){
+                    for(let j=1;j<=checkTitle.length;j++){
+                        if(checkTitle[j]==="]"){
+                            for(let k=1;k<j;k++){
+                                category = category.concat(checkTitle[k]);
+                                checkTitleBoolean=true;
+                            }
+                        }
+                        
+                    }
+                }
+            }
+            if(checkTitleBoolean==true){
+                alert(category);
+            }
+            else{
+                alert('"[분류]제목명"형식을 지켜야 합니다.');
+            }
+               
+                //alert('"[분류]제목명"형식을 지켜야 합니다.');
+            //설명 : 최대 100글자 가능
+            let checkContent = document.getElementById("content").value;
+            if(checkContent.length>100){
+                 alert("설명은 100글자 까지만 작성할 수 있습니다.");
+            }
+        }
+        function reset(){
+            for(const element of document.querySelectorAll("input[type=text]")){
+                    element.value="";
+                }
+        }
+    </script>
+</body>
+</html>
